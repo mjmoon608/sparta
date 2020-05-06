@@ -1,0 +1,19 @@
+- Korean Language Pack for Visual Studio Code : 한국어 패치!
+
+- Material Icon Theme : 폴더, 파일 아이콘을 보기 좋게
+
+- jQuery Code Snippets : jq 입력 이후 코드 자동완성
+
+- Highlight Matching Tag : 태그 매치 기능
+
+- open in browser : HTML 파일을 브라우저에서 열어보기 (주의: 퍼블리셔가 TechER입니다!)
+
+- Bracket Pair Colorizer : 중괄호({, }) 짝 색깔 맞춰주기
+
+- Python : 3주차에 배울 파이썬을 VS Code에서 실행할 수 있도록 도와주는 녀석입니다.
+
+
+
+
+- Prettier -> onsave... 설정 해줘야함. 저장할 때마다 코드 이쁘게 정리
+- Metarial Theme -> 그냥 눈 편안해서 씀
