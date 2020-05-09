@@ -1,0 +1,59 @@
+* {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.container {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+}
+.product_img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.h2-title {
+  font-weight: bold;
+}
+
+.product_detail--title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.text_strong {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.text_price {
+  font-style: oblique;
+}
+
+.product-order {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.product_detail--summary {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.btn_custom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+}
