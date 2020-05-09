@@ -45,3 +45,12 @@
   - 시계방향 순서대로 적용됨
 
 - 주석처리 `ctrl + /`
+
+- flex layout은 자식 컴포넌트를 정렬할때 사용하는 것
+
+  - 부모에 `display: flex` 를 주고 자식에게 flex:1 의 값을 주어서 자리차지비율 조절하거나, <br>
+    `flex: none, width: 200` 을 사용하여 해당 자식만 고정하고 나머지는 유동적으로 사용할 수도 있다.
+
+  - 정렬을 할 때는 부모 컴포넌트에서 설정을 하는 것이다. 생각해보면 당연한 것.
+  - https://youtu.be/DK9OOiXEjKM
+  - https://youtu.be/eprXmC_j9A4
