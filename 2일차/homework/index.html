@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./index.css" />
+    
+    <title>스파르타 | 숙제2</title>
+    <!-- <script>
+      function order_product() {
+        const customerName = $("#customer-name");
+        console.log(customerName);
+        const customNum = $("#customer-num");
+        const customerAdress = $("#customer-adress");
+        const customerTel = $("#customer-tel");
+
+        console.log(customerName);
+
+        // alert("주문이 완료되었습니다!");
+      }
+    </script> -->
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="product_img">
+        <img
+          class="product_img--img"
+          src="https://shop-phinf.pstatic.net/20200213_68/1581577558748dCTlK_JPEG/%C2%DE%B2%D9%B9%CC860.jpg?type=w860"
+        />
+      </div>
+      <div>
+        <div class="product_detail--title">
+          <h2 class="h2-title">용두동 쭈꾸미볶음</h2>
+          <span class="text_price">가격: 9,900원 / 1개</span>
+        </div>
+        <p>
+          <span>
+            그럴때 있잖아요. 매운음식이 먹고 싶어지는 날! 한번 먹으면 다시
+            찾게되는 <span class="text_strong">중독성 강한 매운맛!</span> 맛있게
+            매운 오동쭈꾸미를 준비했어요.
+            <span class="text_strong">오동통 살이 꽉~</span>
+            차있고 부드러운 식감의 쭈꾸미를 매콤하고 달달한 양념에 버물여
+            만들었어요. 냉장실에서 해동한 후 볶아 주기만하면 완성! 10분 내로
+            조리가 가능한 간편한 쭈꾸미볶음 입니다. 기호에 맞게 양파, 콩나물,
+            양배추, 삼겹살, 우삼겹 등 함께 넣어 조리하시면 또 다른 맛의 쭈꾸미
+            요리가 탄생합니다. 매운 음식이 땡기는 날 오동쭈꾸미 한번 경험해
+            보세요!
+          </span>
+        </p>
+      </div>
+      <div>
+        <h2 class="h2-title">주문하기</h2>
+        <div class="input-group mb-2">
+          <div class="input-group-prepend">
+            <div class="input-group-text">주문자 이름</div>
+          </div>
+          <input type="text" class="form-control" id="customer-name" />
+        </div>
+        <div class="input-group mb-2">
+          <div class="input-group-prepend">
+            <div class="input-group-text">수량</div>
+          </div>
+          <select class="custom-select mr-sm-2" id="customer-num">
+            <option value="0" selected>-- 수량을 선택하세요. --</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+          </select>
+        </div>
+        <div class="input-group mb-2">
+          <div class="input-group-prepend">
+            <div class="input-group-text">주소</div>
+          </div>
+          <input type="text" class="form-control" id="customer-adress" />
+        </div>
+        <div class="input-group mb-2">
+          <div class="input-group-prepend">
+            <div class="input-group-text">전화번호</div>
+          </div>
+          <input type="tel" class="form-control" id="customer-tel" />
+        </div>
+      </div>
+      <div class="btn_order">
+      <button id="btn" type="button" class="btn btn-primary btn-lg btn_custom" onclick="order_product()"/>
+        주문하기
+      </button>
+    </div>
+    </div>
+    <script type="text/javascript" src="index.js"></script>
+  </body>
+  
+</html>

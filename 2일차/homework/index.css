@@ -1,0 +1,48 @@
+body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 100px 100px;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.container {
+  flex: 1;
+  max-width: 600px;
+}
+
+.product_img {
+  display: flex;
+  margin: 20px 0px;
+}
+
+.product_img--img {
+  flex: 1;
+  width: 100%;
+}
+
+.product_detail--title {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+}
+
+.h2-title {
+  font-weight: 800;
+}
+
+.text_price {
+  font-style: oblique;
+  font-weight: 600;
+}
+
+.text_strong {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.btn_order {
+  display: flex;
+  justify-content: center;
+}
