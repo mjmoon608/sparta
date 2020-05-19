@@ -56,15 +56,16 @@
             요리가 탄생합니다. 매운 음식이 땡기는 날 오동쭈꾸미 한번 경험해
             보세요!
           </span>
-        </p>
+        </p>       
       </div>
       <div>
+        <p style="color: blue; font-weight: 700;">달러-원 환율: <span id="exchangeRate"></span></p>
         <h2 class="h2-title">주문하기</h2>
         <div class="input-group mb-2">
           <div class="input-group-prepend">
             <div class="input-group-text">주문자 이름</div>
           </div>
-          <input type="text" class="form-control" id="customer-name" />
+          <input type="text" class="form-control" id="customer-name" placeholder="홍길동" />
         </div>
         <div class="input-group mb-2">
           <div class="input-group-prepend">
@@ -87,13 +88,13 @@
           <div class="input-group-prepend">
             <div class="input-group-text">주소</div>
           </div>
-          <input type="text" class="form-control" id="customer-adress" />
+          <input type="text" class="form-control" id="customer-adress" placeholder="···시  ···구  ···길" />
         </div>
         <div class="input-group mb-2">
           <div class="input-group-prepend">
             <div class="input-group-text">전화번호</div>
           </div>
-          <input type="tel" class="form-control" id="customer-tel" />
+          <input type="number" class="form-control" id="customer-tel" placeholder="00012345678" />
         </div>
       </div>
       <div class="btn_order">
@@ -102,6 +103,7 @@
       </button>
     </div>
     </div>
+    <script type="text/javascript" src="LoadData.js"></script>
     <script type="text/javascript" src="index.js"></script>
   </body>
   
