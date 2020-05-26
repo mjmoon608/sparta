@@ -63,8 +63,33 @@
 
 - 반복되는 코드가 있으면 변수로 선언하여 사용하는 것이 간결함.
 
-* 클라이언트 -> 서버 : GET 요청 이해하기
+- 클라이언트 -> 서버 : GET 요청 이해하기
+
   - GET -> 통상적으로! 데이터 조회(Read)를 요청할때
     예) 영화목록 조회
   - POST -> 통상적으로! 데이터 생성(Create), 변경(Update), 삭제(Delete) 요청 할 때
     예) 회원가입, 회원탈퇴, 비밀번호 수정
+
+- 네트워크의 상태에 따라 화면 그리는데 지장이 생기지 않도록 `$(document).ready(function(){})` 을 사용하면 좋다.
+
+```
+$(document).ready(function () {
+  //alert("다 로딩됐다!");
+  // 여기에 환율 API Ajax 요청을 하면 되겠죠?
+  const $exchangeRate = $("#exchangeRate");
+
+  $.ajax({
+    type: "GET",
+    url: "https://api.manana.kr/exchange/rate.json",
+    data: {},
+    success: function (response) {
+      //   alert(response[1]["rate"]);
+      $exchangeRate.text(response[1]["rate"]);
+    },
+  });
+});
+```
+
+- 텍스트 분석시 정규 표현식을 사용하는 것이 좋당.
+
+## 3일차 영화 정보 크롤링 다시 복습하기.
