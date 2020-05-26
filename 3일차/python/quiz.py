@@ -49,8 +49,8 @@ for movie in movies:
         }
 
         #print(doc) # 데이터 확인용
-        #db.quiz.insert_one(doc) # 데이터 베이스에 정보 넣기
+        db.quiz.insert_one(doc) # 데이터 베이스에 정보 넣기
         #db.quiz.update_one({"aver": 9.39}, {'$set':{"aver": 0}}) # 9.39와 aver가 같은 영화 다 0으로 
-# equl_aver_cnt = db.quiz.count_documents({"aver" : 9.37})
+equl_aver_cnt = db.quiz.count_documents({"aver" : 9.37})
 equl_aver_cnt = db.quiz.count_documents({"aver": {'$gt': 9.38}})
 print(equl_aver_cnt)

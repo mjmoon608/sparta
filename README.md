@@ -93,3 +93,9 @@ $(document).ready(function () {
 - 텍스트 분석시 정규 표현식을 사용하는 것이 좋당.
 
 ## 3일차 영화 정보 크롤링 다시 복습하기.
+
+## 3일차
+
+- requsts : API에서 정보 받아오는 라이브러리
+- bs4 : HTML 파싱을 편리하게 도와줌
+- pymongo : mongoDB라는 프로그램을 조작하려면 pymongo가 필요.
