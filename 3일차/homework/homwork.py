@@ -14,17 +14,18 @@ data = requests.get(
 # HTML을 BeautifulSoup이라는 라이브러리를 활용해 검색하기 용이한 상태로 만듦
 soup = BeautifulSoup(data.text, 'html.parser')
 
-songs = soup.select('.list-wrap > tbody > tr.list')
+songs = soup.select('div.music-list-wrap > table.list-wrap > tbody > tr.list')
 
 cnt = 0
 
 for song in songs:
-    cnt += 1
-    if cnt < 10:
-        rank = song.select_one('.number').text[0:1]
-    else:
-        rank = song.select_one('.number').text[0:2]
-
+    # 이거 너무 지저분함. 다르게 바꿀 방법 찾아보기.
+    # cnt += 1
+    # if cnt < 10:
+    #     rank = song.select_one('.number').text[0:1]
+    # else:
+    #     rank = song.select_one('.number').text[0:2]
+    rank = song.select_one('.number').contents[0].strip()
     title = song.select_one('.info > a:nth-child(1)').text.strip()
     singer = song.select_one('.info > a:nth-child(2)').text.strip()
 
