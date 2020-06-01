@@ -4,10 +4,11 @@ $(document).ready(function () {
   const $exchangeRate = $("#exchangeRate");
   $.ajax({
     type: "GET",
-    url: "http://spartacodingclub.shop/post",
+    url: "https://api.manana.kr/exchange/rate.json",
     data: {},
     success: function (response) {
-      console.log(response);
+      // alert(response[1]["rate"]);
+      $exchangeRate.text(response[1]["rate"]);
     },
   });
 });
