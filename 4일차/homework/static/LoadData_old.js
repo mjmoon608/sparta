@@ -49,19 +49,37 @@ function make_order() {
   let customNum = $("#customer-num").val();
   let customerAdress = $("#customer-adress").val();
   let customerTel = $("#customer-tel").val();
+  let isSuccess = true;
 
   if (customerName === "") {
     alert("⚠ 주문자 이름을 입력해주세요❗❗ ⚠");
+    isSuccess = false;
   } else if (customNum === "0") {
     alert("⚠ 수량을 선택해주세요❗❗ ⚠");
+    isSuccess = false;
   } else if (customerAdress === "") {
     alert("⚠ 주소를 입력해주세요❗❗ ⚠");
+    isSuccess = false;
   } else if (customerTel === "") {
     alert("⚠ 전화번호를 입력해주세요❗❗ ⚠");
+    isSuccess = false;
   } else if (customerTel.slice(0, 3) !== "010" || customerTel.length !== 11) {
     alert("⚠ 전화번호 형식을 지켜주세요❗❗ ⚠\n            ex)01078789696😉");
+    isSuccess = false;
   }
 
+  if (
+    customerName !== "" &&
+    customNum !== "" &&
+    customerAdress !== "" &&
+    customerTel !== ""
+  ) {
+    isSuccess = true;
+    console.log(isSuccess);
+  }
+  // else {
+  //   alert("🎉 주문이 완료됐습니다 🎉");
+  // }
   $.ajax({
     type: "POST",
     url: "/order",
@@ -70,19 +88,15 @@ function make_order() {
       num_give: customNum,
       address_give: customerAdress,
       phone_give: customerTel,
+      isSuccess_give: isSuccess,
     },
 
     success: function (response) {
       // console.log(response);
-      if (response["result"] == "success") {
+      if (response["result"] == true) {
         alert(response["msg"]);
         window.location.reload();
       }
     },
   });
-}
-
-function make_card(name, num, address, phone) {
-  let temp_html = `<tr><td>${name}</td><td>${num}</td><td>${address}</td><td>${phone}</td><tr>`;
-  $("#orders-box").append(temp_html);
 }
