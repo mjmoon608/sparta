@@ -98,5 +98,18 @@
 // });
 
 $("#test_start_btn").click(function () {
-  alert("분석완료!");
+  // alert("분석완료!");
+  $.ajax({
+    type: "GET",
+    url: "./face.py",
+    data: "data",
+    dataType: "dataType",
+    success: function (response) {
+      console.log(response);
+    },
+    error: function(){
+      alert("Not Working")
+    }
+    
+  });
 });
