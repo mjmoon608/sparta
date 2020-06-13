@@ -6,7 +6,10 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <meta name="description" content="얼굴 분석, 연예인 닮은 꼴, 동안 테스트, 첫 인상 테스트" />
+    <meta
+      name="description"
+      content="얼굴 분석, 연예인 닮은 꼴, 동안 테스트, 첫 인상 테스트"
+    />
     <meta name="author" content="DP_Bell" />
     <title>얼구리 - 얼굴 분석</title>
     <!-- Font Awesome icons (free version)-->
@@ -19,7 +22,11 @@
     <!-- Fonts CSS-->
     <link rel="stylesheet" href="../static/heading.css" />
     <link rel="stylesheet" href="../static/body.css" />
-    <link rel="icon" type="image/png" href="../static/assets/img/logo_transparent.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../static/assets/img/logo_transparent.png"
+    />
   </head>
   <body id="page-top">
     <nav class="navbar navbar-expand-lg bg-secondary fixed-top" id="mainNav">
@@ -104,17 +111,70 @@
           <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
           <div class="divider-custom-line"></div>
         </div>
-        <h1>여기에 사진 입력받는 칸 만들기</h1>
+        <!-- <h1>여기에 사진 입력받는 칸 만들기</h1>
         <h1>
           버튼 눌러서 진행 입력받은 사진으로 분석 시작버튼 누르고 인식 결과가
           성공적으로 나온다면 아래 카드에 정보 입력 인식 결과 성공적으로
           받아오지 못했다면 다른 문구 버튼 누를 때 카드에 정보 넣기.
         </h1>
         <h4>어떻게 python에서 받아온 정보를 JavaScript로 넘기지?</h4>
-        <h4>python에서 한 것 없애고 JavaScript로 해야할 듯?</h4>
-        <button id="test_start_btn">분석하기</button>
+        <h4>python에서 한 것 없애고 JavaScript로 해야할 듯?</h4> -->
+        <!-- <button id="test_start_btn">분석하기</button> -->
+        <div class="input-group mb-3" style="width: 50%;">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default"
+              >이름</span
+            >
+          </div>
+          <input
+            id="user-name"
+            type="text"
+            class="form-control"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default"
+          />
+        </div>
+        <div class="input-group mb-3" style="width: 50%;">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default"
+              >나이</span
+            >
+          </div>
+          <input
+            id="user-age"
+            type="number"
+            class="form-control"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default"
+          />
+        </div>
+
+        <form action="" method="post" enctype="multipart/form-data" name="">
+          <button type="button" class="btn btn-outline-success">
+            사진 촬영
+          </button>
+
+          <input
+            id="mj_text"
+            class="btn btn-outline-success"
+            type="file"
+            name="FileName"
+          />
+
+          <button
+            type="button"
+            class="btn btn-outline-success"
+            id="test_start_btn"
+          >
+            분석하기
+          </button>
+        </form>
         <!-- Portfolio Grid Items-->
-        <div class="row justify-content-center">
+        <div
+          class="row justify-content-center"
+          id="result-cards"
+          style="margin-top: 100px;"
+        >
           <!-- Portfolio Items-->
           <div class="col-md-6 col-lg-4 mb-5">
             <div
@@ -294,7 +354,7 @@
                     alt="Tasty Cake"
                   />
                   <!-- Portfolio Modal - Text-->
-                  <p class="mb-5">
+                  <p class="mb-5" id="face-age-text">
                     테스트 결과 당신의 얼굴 나이는 ㅇㅇ~ㅇㅇ세 입니다. 상당히
                     동안/노안/평균이시군요 ㅋㅋ
                   </p>
@@ -348,7 +408,7 @@
                     alt="Locked Safe"
                   />
                   <!-- Portfolio Modal - Text-->
-                  <p class="mb-5">
+                  <p class="mb-5" id="face-emotion">
                     당신의 인상은(첫 인상은?) 화나보이는 편입니다. 좀 더
                     웃으시는게 어떨까요?
                   </p>
@@ -378,17 +438,12 @@
         <div class="row">
           <div class="col-lg-4 ml-auto">
             <p class="pre-wrap lead">
-              Freelancer is a free bootstrap theme created by Start Bootstrap.
-              The download includes the complete source files including HTML,
-              CSS, and JavaScript as well as optional SASS stylesheets for easy
-              customization.
+              여기에 게시판을 만들까
             </p>
           </div>
           <div class="col-lg-4 mr-auto">
             <p class="pre-wrap lead">
-              You can create your own custom avatar for the masthead, change the
-              icon in the dividers, and add your email address to the contact
-              form to make it fully functional!
+              말까 생각중인데 후히히히
             </p>
           </div>
         </div>

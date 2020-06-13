@@ -97,19 +97,66 @@
 //   listing();
 // });
 
-$("#test_start_btn").click(function () {
-  // alert("분석완료!");
-  $.ajax({
-    type: "GET",
-    url: "./face.py",
-    data: "data",
-    dataType: "dataType",
-    success: function (response) {
-      console.log(response);
-    },
-    error: function(){
-      alert("Not Working")
-    }
-    
-  });
+$(document).ready(function () {
+  $("#result-cards").hide();
 });
+
+$("#test_start_btn").on("click", function (event) {
+  event.preventDefault();
+  // alert("분석완료!");
+  // $.ajax({
+  //   type: "GET",
+  //   url: "./face.py",
+  //   data: "data",
+  //   dataType: "dataType",
+  //   success: function (response) {
+  //     console.log(response);
+  //   },
+  //   error: function(){
+  //     alert("Not Working")
+  //   }
+  // });
+  user_name = $("#user-name").val();
+  user_age = $("#user-age").val();
+  user_img = $("#mj_text")[0].file;
+  const form = document.querySelector("form");
+  const formData = new FormData(form);
+  formData.append("img", user_img);
+  console.log(formData);
+
+  if (user_name !== "" && user_age !== "" && user_img !== "") {
+    analyze(user_name, user_age, formData);
+  } else {
+    alert("이름과 나이, 사진을 확인해주세요😉");
+  }
+});
+
+function analyze(user_name, user_age, formData) {
+  $.ajax({
+    type: "POST",
+    url: "/api/analyze",
+    data: formData,
+    // dataType: "dataType",
+    success: function (response) {
+      if (response["result"] == false) {
+        alert(response["result"], "얼굴 분석에 실패했습니다.");
+      } else {
+        alert("얼굴 분석에 성공했습니다.");
+        console.log(response);
+
+        face = response["result"][0];
+        celebrity = response["result"][1]["faces"][0]["celebrity"];
+
+        celebrity_text = `${user_name}님은 ${celebrity["value"]}와 ${celebrity["confidence"]}% 닮았습니다.`;
+        face_age_text = `${user_name}님은 원래 나이인 ${user_age}가 아닌 ㅇ날ㄴㅇ무ㅏㅣㄹ ${face["faces"][0]["age"]["value"]}의 나이일 확률이 ${face["faces"][0]["age"]["confidence"]}% 입니다. `;
+        face_emotion = `${user_name}님은 ${face["faces"][0]["emotion"]["value"]} 인뎅`;
+
+        $("#celebrity_text").text(celebrity_text);
+        $("#face-age-text").text(face_age_text);
+        $("#face-emotion").text(face_emotion);
+
+        $("#result-cards").show();
+      }
+    },
+  });
+}
