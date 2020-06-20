@@ -118,31 +118,45 @@ $("#test_start_btn").on("click", function (event) {
   // });
   user_name = $("#user-name").val();
   user_age = $("#user-age").val();
-  user_img = $("#mj_text")[0].file;
-  const form = document.querySelector("form");
-  const formData = new FormData(form);
-  formData.append("img", user_img);
-  console.log(formData);
+  user_img = $("#user-img").val();
+  // user_img = $("#user-img")[0].file;
+  // const form = document.querySelector("form");
+  // const formData = new FormData(form);
+  // formData.append("img", user_img);
+  // console.log(formData);
 
   if (user_name !== "" && user_age !== "" && user_img !== "") {
-    analyze(user_name, user_age, formData);
+    analyze(user_name, user_age, user_img);
   } else {
     alert("이름과 나이, 사진을 확인해주세요😉");
   }
 });
 
-function analyze(user_name, user_age, formData) {
+function analyze(user_name, user_age) {
+  // user_img = $("#user-img").val();
+  // path = document.getElementById("user-img").files[0].path;
+  // console.log(path);
+
+  const form = $("#FILE_FORM")[0];
+  const formData = new FormData(form);
+  formData.append("img", $("#user-img")[0].files[0]);
+  console.log(formData);
+
   $.ajax({
     type: "POST",
     url: "/api/analyze",
+    // processData: false, // 이게 뭔지 모룸.
+    // data: { "user-img": path },
     data: formData,
+    processData: false,
+    contentType: false,
     // dataType: "dataType",
     success: function (response) {
       if (response["result"] == false) {
         alert(response["result"], "얼굴 분석에 실패했습니다.");
       } else {
         alert("얼굴 분석에 성공했습니다.");
-        console.log(response);
+        // console.log(response);
 
         face = response["result"][0];
         celebrity = response["result"][1]["faces"][0]["celebrity"];
@@ -158,5 +172,23 @@ function analyze(user_name, user_age, formData) {
         $("#result-cards").show();
       }
     },
+    error: function (request, status, error) {
+      console.log(request, status, error);
+      alert("얼굴 분석에 실패하였습니다. 다시 시도해 주세요.");
+    },
+  });
+}
+
+function uploadFile() {
+  var form = $("#FILE_FORM")[0];
+  var formData = new FormData(form);
+  formData.append("fileObj", $("#FILE_TAG")[0].files[0]);
+
+  $.ajax({
+    type: "POST",
+    url: "url",
+    data: "data",
+    dataType: "dataType",
+    success: function (response) {},
   });
 }

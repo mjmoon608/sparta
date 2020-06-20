@@ -149,16 +149,22 @@
           />
         </div>
 
-        <form action="" method="post" enctype="multipart/form-data" name="">
+        <form
+          action="FILE_FORM"
+          method="post"
+          enctype="multipart/form-data"
+          name=""
+        >
           <button type="button" class="btn btn-outline-success">
             사진 촬영
           </button>
 
           <input
-            id="mj_text"
+            id="user-img"
             class="btn btn-outline-success"
             type="file"
-            name="FileName"
+            name="user-img"
+            accept=".jpg, .png"
           />
 
           <button

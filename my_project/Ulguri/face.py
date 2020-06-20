@@ -4,30 +4,48 @@ import requests
 from cv2 import cv2
 from PIL import Image
 import numpy as np
+import urllib
+from io import BytesIO
+import io
 
 client_id = "55gGa_8DQ_3vGlywNFsQ"
 client_secret = "_7yvDe8CR6"
 url_face = "https://openapi.naver.com/v1/vision/face"  # 얼굴감지
 url_celebrity = "https://openapi.naver.com/v1/vision/celebrity"  # 유명인 얼굴인식
 
-user_input = ""
 
-def analyze(user_input_file):
-    global user_input
-    user_input =  user_input_file
+def analyze():
+    # from app import user_img_path
+    # print(user_img_path + 'face.py')
     # 이미지 가져오기
     # img = cv2.imread("testImg.jpg", cv2.IMREAD_COLOR)
+    temp = 'https://image.chosun.com/sitedata/image/201007/28/2010072800337_0.jpg'
+    response = requests.get(temp)
+    img = Image.open(BytesIO(response.content))
+    # image = np.asarray(bytearray(resp.read()), dtype="uint8")
+    # img = cv2.imdecode(image, cv2.IMREAD_COLOR)
+    # img = cv2.imread(image, cv2.IMREAD_COLOR)
     # 이미지 사이즈 변경
     # resize = cv2.resize(img, dsize=(600, 800), interpolation=cv2.INTER_AREA)
-    resize = cv2.resize(user_input_file, dsize=(600, 800), interpolation=cv2.INTER_AREA)
-
+    
+    
     # 사이즈 변경된 이미지 저장
-    cv2.imwrite('temp_img.jpg', resize)
+    # cv2.imwrite('temp_img.jpg', resize)
 
     # files = Image.fromarray(resize, 'RGB') # pillow 이미지 변경 테스트 -> 실패
 
 
-    files = {'image': open('temp_img.jpg', 'rb')}
+    # files = {'image': open('temp_img.jpg', 'rb')}
+    # img.thumbnail((600, 800))
+    newsize = (600, 800) 
+    img = img.resize(newsize) 
+    # API 에서 요구하는 건 바이너리 이미지.(추측)
+    # mj_test = Image.fromarray()
+    img.show()
+    buf = io.BytesIO()
+    img.save(buf, format="JPEG")
+    byte_im = buf.getvalue()
+    files = {'image': byte_im}
 
 
     # files = {'image': np.array(resize)}
@@ -39,13 +57,15 @@ def analyze(user_input_file):
 
     response_face = requests.post(url_face,  files=files, headers=headers)
     rescode_face = response_face.status_code
+    # print(response_face.json())
 
-    files = {'image': open('temp_img.jpg', 'rb')}
+    # files = {'image': open('temp_img.jpg', 'rb')}
 
     response_celebrity = requests.post(
         url_celebrity,  files=files, headers=headers)
     rescode_celebrity = response_celebrity.status_code
 
+    # print(response_celebrity.json())
     if(rescode_face == 200 and rescode_celebrity == 200):
         api_result = list()
         # print(response.text)
@@ -69,7 +89,7 @@ def analyze(user_input_file):
         error = "fail"
         return error
 
-analyze(user_input)
+# analyze()
 # print(response_face.text)
 # print(response_celebrity.text)
 
