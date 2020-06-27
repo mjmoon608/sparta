@@ -14,12 +14,13 @@ url_face = "https://openapi.naver.com/v1/vision/face"  # 얼굴감지
 url_celebrity = "https://openapi.naver.com/v1/vision/celebrity"  # 유명인 얼굴인식
 
 
-def analyze():
+def analyze(url):
     # from app import user_img_path
     # print(user_img_path + 'face.py')
     # 이미지 가져오기
     # img = cv2.imread("testImg.jpg", cv2.IMREAD_COLOR)
-    temp = 'https://image.chosun.com/sitedata/image/201007/28/2010072800337_0.jpg'
+    # temp = 'https://image.chosun.com/sitedata/image/201007/28/2010072800337_0.jpg'
+    temp = url
     response = requests.get(temp)
     img = Image.open(BytesIO(response.content))
     # image = np.asarray(bytearray(resp.read()), dtype="uint8")
@@ -41,7 +42,7 @@ def analyze():
     img = img.resize(newsize) 
     # API 에서 요구하는 건 바이너리 이미지.(추측)
     # mj_test = Image.fromarray()
-    img.show()
+    # img.show()
     buf = io.BytesIO()
     img.save(buf, format="JPEG")
     byte_im = buf.getvalue()

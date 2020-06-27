@@ -12,6 +12,7 @@
     />
     <meta name="author" content="DP_Bell" />
     <title>얼구리 - 얼굴 분석</title>
+
     <!-- Font Awesome icons (free version)-->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
@@ -120,7 +121,7 @@
         <h4>어떻게 python에서 받아온 정보를 JavaScript로 넘기지?</h4>
         <h4>python에서 한 것 없애고 JavaScript로 해야할 듯?</h4> -->
         <!-- <button id="test_start_btn">분석하기</button> -->
-        <div class="input-group mb-3" style="width: 50%;">
+        <div class="input-group container mb-3" style="width: 50%;">
           <div class="input-group-prepend">
             <span class="input-group-text" id="inputGroup-sizing-default"
               >이름</span
@@ -134,7 +135,7 @@
             aria-describedby="inputGroup-sizing-default"
           />
         </div>
-        <div class="input-group mb-3" style="width: 50%;">
+        <div class="input-group container mb-3" style="width: 50%;">
           <div class="input-group-prepend">
             <span class="input-group-text" id="inputGroup-sizing-default"
               >나이</span
@@ -148,16 +149,16 @@
             aria-describedby="inputGroup-sizing-default"
           />
         </div>
-
         <form
           action="FILE_FORM"
           method="post"
           enctype="multipart/form-data"
           name=""
+          style="margin: 0 auto; display: table;"
         >
-          <button type="button" class="btn btn-outline-success">
-            사진 촬영
-          </button>
+          <!-- <button type="button" class="btn btn-outline-success">
+              사진 촬영
+            </button> -->
 
           <input
             id="user-img"
@@ -176,6 +177,13 @@
           </button>
         </form>
         <!-- Portfolio Grid Items-->
+        <div
+          class="row justify-content-center"
+          id="check-img"
+          style="margin-top: 10px;"
+        >
+          <img id="user-check" alt="user-image" height="500" width="500" />
+        </div>
         <div
           class="row justify-content-center"
           id="result-cards"
@@ -220,11 +228,15 @@
                   <i class="fas fa-plus fa-3x"></i>
                 </div>
               </div>
-              <img
+              <!-- <img
                 class="img-fluid"
                 src="../static/assets/img/portfolio/cake.png"
                 alt="얼굴 나이 테스트"
-              />
+              /> -->
+              <p
+                class="age_test"
+                style="margin: 0 auto; display: table; font-size: 150px;"
+              ></p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4 mb-5">
@@ -242,11 +254,15 @@
                   <i class="fas fa-plus fa-3x"></i>
                 </div>
               </div>
-              <img
+              <!-- <img
                 class="img-fluid"
                 src="../static/assets/img/portfolio/safe.png"
                 alt="첫 인상 테스트"
-              />
+              /> -->
+              <p
+                class="emotion_test"
+                style="margin: 0 auto; display: table; font-size: 150px;"
+              ></p>
             </div>
           </div>
         </div>
@@ -354,11 +370,16 @@
                     </div>
                     <div class="divider-custom-line"></div>
                   </div>
-                  <!-- Portfolio Modal - Image--><img
+                  <!-- Portfolio Modal - Image-->
+                  <!-- <img
                     class="img-fluid rounded mb-5"
                     src="../static/assets/img/portfolio/cake.png"
                     alt="Tasty Cake"
-                  />
+                  /> -->
+                  <p
+                    class="age_test"
+                    style="margin: 0 auto; display: table; font-size: 150px;"
+                  ></p>
                   <!-- Portfolio Modal - Text-->
                   <p class="mb-5" id="face-age-text">
                     테스트 결과 당신의 얼굴 나이는 ㅇㅇ~ㅇㅇ세 입니다. 상당히
@@ -408,11 +429,16 @@
                     </div>
                     <div class="divider-custom-line"></div>
                   </div>
-                  <!-- Portfolio Modal - Image--><img
+                  <!-- Portfolio Modal - Image-->
+                  <!-- <img
                     class="img-fluid rounded mb-5"
                     src="../static/assets/img/portfolio/safe.png"
                     alt="Locked Safe"
-                  />
+                  /> -->
+                  <p
+                    class="emotion_test"
+                    style="margin: 0 auto; display: table; font-size: 150px;"
+                  ></p>
                   <!-- Portfolio Modal - Text-->
                   <p class="mb-5" id="face-emotion">
                     당신의 인상은(첫 인상은?) 화나보이는 편입니다. 좀 더
@@ -490,22 +516,22 @@
         <div class="row">
           <!-- Footer Location-->
           <div class="col-lg-4 mb-5 mb-lg-0">
-            <h4 class="mb-4">LOCATION</h4>
-            <p class="pre-wrap lead mb-0">sparta coding club</p>
+            <h4 class="mb-4">DEVELOPER</h4>
+            <p class="pre-wrap lead mb-0">DP_Bell</p>
           </div>
           <!-- Footer Social Icons-->
           <div class="col-lg-4 mb-5 mb-lg-0">
-            <h4 class="mb-4">ROUND THE WEB</h4>
+            <!-- <h4 class="mb-4">ROUND THE WEB</h4>
             <a
               class="btn btn-outline-light btn-social mx-1"
               href="https://www.facebook.com/StartBootstrap"
               ><i class="fab fa-fw fa-facebook-f"></i
-            ></a>
+            ></a> -->
           </div>
           <!-- Footer About Text-->
           <div class="col-lg-4">
             <h4 class="mb-4">ABOUT 얼구리</h4>
-            <p class="pre-wrap lead mb-0">
+            <p class="lead mb-0">
               얼굴을 분석하여 닮은 꼴 연예인, 얼굴 나이, 첫 인상을 알아볼 수
               있습니다.
             </p>
